@@ -12,6 +12,7 @@ const cart: NextPage = () => {
     type CART = any
     const [cart, setCart] = useState<CART>();
     const [available, setAvailable] = useState(false);
+    const [empty, setEmpty] = useState(false)
     const classes = useStyles();
 
     const router = useRouter();
@@ -24,13 +25,21 @@ const cart: NextPage = () => {
     const handleUpdateCartQty = async(id , quantity) =>{
         const response = await commerce.cart.update(id, {quantity})
         setCart(response.cart)
+        if(response.cart.subtotal.raw === 0){
+            setAvailable(false)
+        }
     }
     const handleRemoveFromCart = async(id)=>{
         const response = await commerce.cart.remove(id)
         setCart(response.cart)
+        console.log(response.cart)
+        if(response.cart.subtotal.raw === 0){
+            setAvailable(false)
+        }
     }
     const handleEmptyCart = async() =>{
         const response = commerce.cart.empty()
+        setAvailable(false)
         setCart(response.cart)
     }
 
@@ -41,6 +50,7 @@ const cart: NextPage = () => {
             await setCart(itemsCart);
             console.log(cart);
             console.log(itemsCart);
+            setEmpty(true)
             if (itemsCart.total_items > 0) {
                 setAvailable(true);
             }
@@ -93,7 +103,7 @@ const cart: NextPage = () => {
         <Container>
             <div className={classes.toolbar} />
             <Typography className={classes.title} variant="h3" gutterBottom>Your Shopping Cart</Typography>
-            {cart ? (
+            {empty ? (
                 <Cart />
             ) : (
                 <Loader type="Oval" color="#00BFFF" height={50} width={50} />

@@ -8,7 +8,7 @@ const CartItem: NextPage<Props> = ({item, handleUpdateCartQty, handleRemoveFromC
     const classes = useStyles();
     return (
         <Card className="cart-item">
-            <CardMedia image={item.image.url} alt={item.name} className={classes.media}/>
+            <CardMedia image={item.image.url} className={classes.media}/>
             <CardContent className={classes.cardContent}>
                 <Typography variant="h6">{item.name}</Typography>
                 <Typography variant="h6">
