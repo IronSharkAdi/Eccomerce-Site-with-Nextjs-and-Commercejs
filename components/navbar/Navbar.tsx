@@ -1,34 +1,64 @@
-import React, { FunctionComponent } from 'react';
-import {AppBar, Badge, IconButton, Toolbar, Typography} from "@mui/material";
+import React, { FunctionComponent } from "react";
+import { AppBar, Badge, IconButton, Toolbar, Typography } from "@mui/material";
 import useStyles from "./styles";
-import {ShoppingCart} from "@mui/icons-material";
+import { ShoppingCart } from "@mui/icons-material";
+import { NextPage } from "next";
+import NextLink from "next/link";
 
-interface OwnProps {}
+type Props = any;
 
-type Props = OwnProps;
-
-const Navbar: FunctionComponent<Props> = (props) => {
-    const classes = useStyles()
-  return (
-      <>
-      <AppBar position={"sticky"} className={classes.appBar} color={"inherit"}>
-            <Toolbar>
-                <Typography variant={"h6"} className={classes.title} color={"inherit"}>
-                    <img src={"https://i.imgur.com/P9ZFVnm.png"} alt={"ionic byte logo"} height={"25px"} className={classes.image} />
-                    IonicByte
-                </Typography>
-                <div className={classes.grow}/>
-                <div className={classes.menuButton}>
-                    <IconButton aria-label={"Show Cart Item"} color={"inherit"} >
-                        <Badge badgeContent={2} color={"secondary"} >
-                            <ShoppingCart/>
-                        </Badge>
-                    </IconButton>
-                </div>
-            </Toolbar>
-      </AppBar>
-      </>
-  );
+const Navbar: NextPage<Props> = ({ items }) => {
+    const classes = useStyles();
+    return (
+        <>
+            <AppBar
+                position={"sticky"}
+                className={classes.appBar}
+                color={"inherit"}
+            >
+                <Toolbar>
+                    <NextLink href="/">
+                        <a>
+                        <Typography
+                        variant={"h6"}
+                        className={classes.title}
+                        color={"inherit"}
+                    >
+                        <img
+                            src={"https://i.imgur.com/P9ZFVnm.png"}
+                            alt={"ionic byte logo"}
+                            height={"25px"}
+                            className={classes.image}
+                        />
+                        IonicByte
+                    </Typography>
+                        </a>
+                    </NextLink>
+                    
+                    <div className={classes.grow} />
+                    <div className={classes.menuButton}>
+                        <NextLink href="/cart">
+                            <a>
+                                <IconButton
+                                    aria-label={"Show Cart Item"}
+                                    color={"inherit"}
+                                >
+                                    <Badge
+                                        badgeContent={items}
+                                        color={"secondary"}
+                                    >
+                                        <ShoppingCart
+                                            className={classes.menuIcon}
+                                        />
+                                    </Badge>
+                                </IconButton>
+                            </a>
+                        </NextLink>
+                    </div>
+                </Toolbar>
+            </AppBar>
+        </>
+    );
 };
 
 export default Navbar;

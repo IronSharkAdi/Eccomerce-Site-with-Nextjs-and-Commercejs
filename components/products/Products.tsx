@@ -14,7 +14,7 @@ const products:{id: number, name:string, description:string, price:number, imgSr
 type Props = any
 
 
-const Products:NextPage<Props> = ({data}) => {
+const Products:NextPage<Props> = ({data, handleAddCart}) => {
     console.log(data)
     const classes = useStyles()
     return (
@@ -24,7 +24,7 @@ const Products:NextPage<Props> = ({data}) => {
             <Grid container spacing={4} justifyContent={"center"} >
                 {data && data.map(product =>(
                     <Grid item key={product.id} xs={12} sm={6} md={4} lg={3}>
-                        <Product product={product}/>
+                        <Product product={product} handleAddCart={handleAddCart} />
                     </Grid>
                 ))}
             </Grid>

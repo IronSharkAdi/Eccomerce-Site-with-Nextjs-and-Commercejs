@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme:Theme) => createStyles({
     menuButton: {
         marginRight: theme.spacing(2),
         [theme.breakpoints.up('sm')]: {
-            display: 'none',
+            // display: 'none',
         },
     },
     grow: {
@@ -67,6 +67,9 @@ const useStyles = makeStyles((theme:Theme) => createStyles({
         [theme.breakpoints.up('md')]: {
             width: '20ch',
         },
+    },
+    menuIcon:{
+        // fontSize:"300px",
     },
 }))
 

@@ -6,7 +6,7 @@ import NextImage from 'next/image'
 
 type Props = any
 
-const Product: NextPage<Props> = ({product}) => {
+const Product: NextPage<Props> = ({product, handleAddCart}) => {
     const classes = useStyles()
     return (
         <>
@@ -26,7 +26,7 @@ const Product: NextPage<Props> = ({product}) => {
                         <Typography dangerouslySetInnerHTML={{__html : product.description}} variant={"body2"} color={"textSecondary"}/>
 
                     </CardContent>
-                    <CardActions disableSpacing className={classes.cardActions}>
+                    <CardActions onClick={() => {handleAddCart(product.id, 1 )}} disableSpacing className={classes.cardActions}>
                         <IconButton aria-label={"Add to Cart"}>
                             <AddShoppingCart/>
                         </IconButton>

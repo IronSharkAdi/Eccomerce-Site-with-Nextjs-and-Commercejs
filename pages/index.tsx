@@ -6,6 +6,8 @@ import Products from "../components/products/Products";
 import Navbar from "../components/navbar/Navbar";
 import {InferGetServerSidePropsType} from "next";
 import commerce from "../lib/Commercejs/commerce";
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
 
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
@@ -20,10 +22,27 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
 
 const Home: NextPage = ({ data  }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+    const router = useRouter();
+   
+    const [cart, setCart] = useState({})
+    const fetchCart = async () =>{
+        setCart(await commerce.cart.retrieve())
+    }
+    const handleAddCart = async (id , quantity) =>{
+        const item = await commerce.cart.add(id , quantity)
+
+        setCart(item.cart)
+    }
+    useEffect(() => {
+        if (!router.isReady) return;
+        fetchCart()
+      }, [router.isReady]);
+
+      console.log(cart)
   return (
    <>
-       <Navbar/>
-       <Products data={data}/>
+       <Navbar items={cart && cart.total_items} />
+       <Products data={data} handleAddCart={handleAddCart} />
    </>
   )
 }
