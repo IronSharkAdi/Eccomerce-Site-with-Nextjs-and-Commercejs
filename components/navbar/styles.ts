@@ -1,4 +1,6 @@
-import {createStyles, makeStyles, Theme , fade } from "@material-ui/core";
+import {createStyles, makeStyles } from "@mui/styles";
+import { alpha, Theme } from '@mui/material/styles';
+
 
 const drawerWidth:number = 0;
 
@@ -6,6 +8,7 @@ const useStyles = makeStyles((theme:Theme) => createStyles({
     appBar: {
         boxShadow: 'none',
         borderBottom: '1px solid rgba(0, 0, 0, 0.12)',
+        marginBottom:"20px",
         [theme.breakpoints.up('sm')]: {
             width: `calc(100% - ${drawerWidth}px)`,
             marginLeft: drawerWidth,
@@ -32,9 +35,9 @@ const useStyles = makeStyles((theme:Theme) => createStyles({
     search: {
         position: 'relative',
         borderRadius: theme.shape.borderRadius,
-        backgroundColor: fade(theme.palette.common.white, 0.15),
+        backgroundColor: alpha(theme.palette.common.white, 0.15),
         '&:hover': {
-            backgroundColor: fade(theme.palette.common.white, 0.25),
+            backgroundColor: alpha(theme.palette.common.white, 0.25),
         },
         marginRight: theme.spacing(2),
         marginLeft: 0,

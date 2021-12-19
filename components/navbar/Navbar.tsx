@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react';
-import {AppBar, Badge, IconButton, Toolbar, Typography} from "@material-ui/core";
+import {AppBar, Badge, IconButton, Toolbar, Typography} from "@mui/material";
 import useStyles from "./styles";
-import {ShoppingCart} from "@material-ui/icons";
+import {ShoppingCart} from "@mui/icons-material";
 
 interface OwnProps {}
 
@@ -11,7 +11,7 @@ const Navbar: FunctionComponent<Props> = (props) => {
     const classes = useStyles()
   return (
       <>
-      <AppBar position={"fixed"} className={classes.appBar} color={"inherit"}>
+      <AppBar position={"sticky"} className={classes.appBar} color={"inherit"}>
             <Toolbar>
                 <Typography variant={"h6"} className={classes.title} color={"inherit"}>
                     <img src={"https://i.imgur.com/P9ZFVnm.png"} alt={"ionic byte logo"} height={"25px"} className={classes.image} />
