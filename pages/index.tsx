@@ -12,7 +12,7 @@ import { useRouter } from 'next/router';
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
     const { data: data  } = await commerce.products.list();
-    
+        
     return{
         props :{
             data
@@ -33,6 +33,7 @@ const Home: NextPage = ({ data  }: InferGetServerSidePropsType<typeof getServerS
 
         setCart(item.cart)
     }
+    
     useEffect(() => {
         if (!router.isReady) return;
         fetchCart()

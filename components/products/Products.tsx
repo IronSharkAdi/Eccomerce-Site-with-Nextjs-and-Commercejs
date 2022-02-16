@@ -13,10 +13,10 @@ const products:{id: number, name:string, description:string, price:number, imgSr
 
 type Props = any
 
-
 const Products:NextPage<Props> = ({data, handleAddCart}) => {
     console.log(data)
     const classes = useStyles()
+
     return (
         <Container maxWidth="lg">
         <main className={classes.content}>

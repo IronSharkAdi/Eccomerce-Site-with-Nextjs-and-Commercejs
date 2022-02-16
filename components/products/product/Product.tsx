@@ -2,12 +2,13 @@ import type { NextPage } from 'next'
 import {Card, CardActions, CardContent, CardMedia, IconButton, Typography} from "@mui/material";
 import {AddShoppingCart} from "@mui/icons-material";
 import useStyles from "./styles";
-import NextImage from 'next/image'
 
 type Props = any
 
 const Product: NextPage<Props> = ({product, handleAddCart}) => {
     const classes = useStyles()
+
+
     return (
         <>
             {product ? (<>
@@ -24,7 +25,6 @@ const Product: NextPage<Props> = ({product, handleAddCart}) => {
                             </Typography>
                         </div>
                         <Typography dangerouslySetInnerHTML={{__html : product.description}} variant={"body2"} color={"textSecondary"}/>
-
                     </CardContent>
                     <CardActions onClick={() => {handleAddCart(product.id, 1 )}} disableSpacing className={classes.cardActions}>
                         <IconButton aria-label={"Add to Cart"}>

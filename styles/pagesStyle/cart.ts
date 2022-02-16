@@ -32,4 +32,4 @@ const useStyles = makeStyles((theme:Theme) => createStyles({
 
 }))
 
-export default useStyles
+export default useStyles;
