@@ -8,6 +8,7 @@ import {InferGetServerSidePropsType} from "next";
 import commerce from "../lib/Commercejs/commerce";
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
+import LandingPage from '../components/LandingPage/LandingPage';
 
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
@@ -20,11 +21,12 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     }
 }
 
+type cart= any
 
 const Home: NextPage = ({ data  }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
     const router = useRouter();
-   
-    const [cart, setCart] = useState({})
+    
+    const [cart, setCart] = useState<cart>({})
     const fetchCart = async () =>{
         setCart(await commerce.cart.retrieve())
     }
@@ -43,6 +45,7 @@ const Home: NextPage = ({ data  }: InferGetServerSidePropsType<typeof getServerS
   return (
    <>
        <Navbar items={cart && cart.total_items} />
+        <LandingPage/>
        <Products data={data} handleAddCart={handleAddCart} />
    </>
   )

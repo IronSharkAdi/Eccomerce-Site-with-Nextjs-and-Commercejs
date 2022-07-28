@@ -18,6 +18,7 @@ const Products:NextPage<Props> = ({data, handleAddCart}) => {
     const classes = useStyles()
 
     return (
+        <section id='shop'>
         <Container maxWidth="lg">
         <main className={classes.content}>
             <div className={classes.toolbar}/>
@@ -30,6 +31,7 @@ const Products:NextPage<Props> = ({data, handleAddCart}) => {
             </Grid>
         </main>
         </Container>
+        </section>
     )
 }
 
