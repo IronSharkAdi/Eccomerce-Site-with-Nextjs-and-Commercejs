@@ -1,7 +1,7 @@
 import { Paper, Step, StepLabel, Stepper, Typography } from "@mui/material"
 import { NextPage } from "next"
 import { useState } from "react"
-import UseStyles from "../styles/pagesStyle/Checkout"
+import UseStyles from "../styles/pagesStyle/checkout"
 
 
 const Checkout:NextPage =() => {
