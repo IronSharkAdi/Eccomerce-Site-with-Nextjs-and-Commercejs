@@ -10,7 +10,7 @@ import CartItem from "../components/Cart/CartItem";
 import NextLink from 'next/link'
 
 
-const cart: NextPage = () => {
+const Cart: NextPage = () => {
     type CART = any;
     const [cart, setCart] = useState<CART>();
     const [available, setAvailable] = useState(false);
@@ -139,4 +139,4 @@ const cart: NextPage = () => {
     );
 };
 
-export default cart;
+export default Cart;

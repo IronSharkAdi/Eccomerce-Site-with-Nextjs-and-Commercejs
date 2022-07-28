@@ -3,7 +3,7 @@ import { Theme } from '@mui/material/styles';
 
 
 
-const useStyles = makeStyles<Theme>((theme:Theme) => createStyles({
+const UseStyles = makeStyles<Theme>((theme:Theme) => createStyles({
     appBar: {
         position: 'relative',
       },
@@ -57,4 +57,4 @@ const useStyles = makeStyles<Theme>((theme:Theme) => createStyles({
 
 }))
 
-export default useStyles
+export default UseStyles

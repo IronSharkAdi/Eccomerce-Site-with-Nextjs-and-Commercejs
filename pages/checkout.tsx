@@ -1,16 +1,16 @@
 import { Paper, Step, StepLabel, Stepper, Typography } from "@mui/material"
 import { NextPage } from "next"
 import { useState } from "react"
-import useStyles from "../styles/pagesStyle/checkout"
+import UseStyles from "../styles/pagesStyle/Checkout"
 
 
-const checkout:NextPage =() => {
-    const classes = useStyles()
-    const [activeSteps, setactiveSteps] = useState(0)
+const Checkout:NextPage =() => {
+    const classes = UseStyles()
+    // const [activeSteps, setActiveSteps] = useState(0)
     const steps = ["Shipping Address", "Payment details"]
     const Form = () =>(
         <>
-        {activeSteps === 0 ? <AddressForm/> : <PaymentForm/>}
+        {/* {activeSteps === 0 ? <AddressForm/> : <PaymentForm/>} */}
         </>
     )
     const PaymentForm = () =>(
@@ -41,7 +41,7 @@ const checkout:NextPage =() => {
                                 </Step>
                             ))}
                         </Stepper>
-                        {activeSteps === steps.length ? <Confirmation/> : <Form/>}
+                        {/* {activeSteps === steps.length ? <Confirmation/> : <Form/>} */}
                 </Paper>
 
             </main>
@@ -49,4 +49,4 @@ const checkout:NextPage =() => {
     )
 }
 
-export default checkout
+export default Checkout
