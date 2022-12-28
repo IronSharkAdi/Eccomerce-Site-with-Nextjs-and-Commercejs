@@ -16,6 +16,8 @@
     "@mui/icons-material": "^5.2.4",
     "@mui/material": "^5.2.4",
     "@mui/styles": "^5.2.3",
+    "@stripe/react-stripe-js": "^1.16.1",
+    "@stripe/stripe-js": "^1.46.0",
     "babel-plugin-styled-components": "^2.0.2",
     "dotenv": "^10.0.0",
     "next": "12.0.4",
@@ -27,7 +29,6 @@
   "devDependencies": {
     "@types/node": "16.11.11",
     "@types/react": "17.0.37",
-    "eslint": "7",
     "eslint-config-next": "12.0.4",
     "prettier": "^2.5.0",
     "typescript": "4.5.2"

@@ -25,7 +25,8 @@ const Navbar: NextPage<Props> = ({ items }) => {
                         color={"inherit"}
                     >
                         <NextImage
-                            src={"https://scontent.fdac7-1.fna.fbcdn.net/v/t39.30808-6/295452206_147757694589714_2467430965110043130_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeEyu9QQoGKkwrBL8rAI3tG63W6O_RQrFnDdbo79FCsWcBOB9pLHFNiE2J6xnppGopNozmX-_mKRPk-NPo2m2toW&_nc_ohc=NZs5ngdHGxEAX_UgPjs&_nc_ht=scontent.fdac7-1.fna&oh=00_AT9opMVG4QBjhS39CflbTjctGMvdAeUbNuCTlZmmrtbwlQ&oe=62E6C7F5"}
+                            src={"/favicon.ico"}
+                            width="10"
                             alt={"ionic byte logo"}
                             height={"25px"}
                             className={classes.image}
